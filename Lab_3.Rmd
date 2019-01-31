@@ -4,3 +4,16 @@ author: "Jasmine Sanchez"
 date: "January 30, 2019"
 output: html_document
 ---
+
+```{r}
+library(tidyverse)
+install.packages("tidyverse")
+library(tidyverse)
+```
+
+```{r}
+ggplot(data = cdc) +
+  geom_bar(mapping = aes(x = age, fill = genhlth)) +
+  facet_wrap(~ smoke100)
+```
+
