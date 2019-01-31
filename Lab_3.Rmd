@@ -46,7 +46,13 @@ ggplot(data = cdc)+
 ```
 
 ####Findings
-Generally, the population of people that smoke have a much lower portion of people with 'excellent' health quality compared to non-smokers.  They also have a lower portion of people with 'very good' health quality, and higher portions of 'fair' and 'poor' health quality people. It also shows that of the people that excercise, the population has a much greater proportion of people with 'excellent' and 'ver good' health quality compared to those who don't excercise.
+I, Adam Hayes, overall found, the population of people that smoke have a much lower portion of people with 'excellent' health quality compared to non-smokers.  They also have a lower portion of people with 'very good' health quality, and higher portions of 'fair' and 'poor' health quality people. It also shows that of the people that excercise, the population has a much greater proportion of people with 'excellent' and 'ver good' health quality compared to those who don't excercise.
 
+```{r}
+ggplot(data=cdc) + ggtitle("How Age Impacts General Health") + geom_bar(mapping = aes(x = age, fill = genhlth),position = "jitter", width = 0.25) + coord_flip() 
+```
+
+###Findings
+I, Erin Omyer, created a plot showing the comparison between the general health of person based on their age. For our overall study, we want to study the relationship among smokers between their age and general health. The data showed that an adolescent is likely to have "very good" health, but the as you reach the age of 50, then the general health is more on the bridge of "fair" health. I used the geom_bar function to create a bar chart. I flipped the coordinated axises to make it easier to observe the patterns of general health as the age increases. In addition, I used a width of 0.5 to visualize the division of colors for the general health easier. Overall, the older the age, the lower the level of their general health. 
 
 
