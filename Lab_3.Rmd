@@ -5,14 +5,18 @@ date: "January 30, 2019"
 output: html_document
 ---
 
-```{r}
+```{r, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+
 library(tidyverse)
-install.packages("tidyverse")
-library(tidyverse)
+source("http://www.openintro.org/stat/data/cdc.R")
+cdc <- as_tibble(cdc)
+cdc
 ```
 
 ```{r}
 ggplot(data = cdc) +
   geom_bar(mapping = aes(x = age, fill = genhlth)) +
-  facet_wrap(~ smoke100)
+  facet_wrap(~ smoke100)+
+  labs(title = "Health Quality by Age for Smokers vs. Non-smokers")
 ```
