@@ -55,4 +55,15 @@ ggplot(data=cdc) + ggtitle("How Age Impacts General Health") + geom_bar(mapping 
 ###Findings
 I, Erin Omyer, created a plot showing the comparison between the general health of person based on their age. For our overall study, we want to study the relationship among smokers between their age and general health. The data showed that an adolescent is likely to have "very good" health, but the as you reach the age of 50, then the general health is more on the bridge of "fair" health. I used the geom_bar function to create a bar chart. I flipped the coordinated axises to make it easier to observe the patterns of general health as the age increases. In addition, I used a width of 0.5 to visualize the division of colors for the general health easier. Overall, the older the age, the lower the level of their general health. 
 
+```{r}
+ggplot(data = cdc, mapping = aes(x= weight, y = height), position = "dodge") +
+geom_point(mapping = aes(color = genhlth, shape = genhlth), position = "dodge") +
+  geom_smooth(mapping = aes(color = genhlth), se = FALSE) +
+   theme_bw() +
+  facet_wrap(~ gender) +
+  labs(y = "Survey Participants",
+      title = "General Health by Weight and Gender")
+```
 
+#### Findings 
+I (Richard Park) found that general health varied between weight and gender. The red linear trend line (which indicates a general health of excellent) for both female and male were extremely different from each other. Oddly enough, the males peaked in excellent general health at the weight of about 250 pounds whereas, females peaked in excellent health after a weight of about 350 pounds. Another finding that I found interesting was that males tend to have more participants with fair or poor general health compared to females. The general trend lines indicate a lot of interesting trends.
