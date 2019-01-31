@@ -19,12 +19,14 @@ How is people health affected by age and whether or not they smoke?
 
 ####Importance
 This question is intriguing because people are constantly worried about their health, and what causes it to decrease and/or increase. People generally think that their health decrease with age, and that smoking will also decrease overall health quality. We wanted to investigate the validity of these general assumptions.
+
 ```{r}
 ggplot(data = cdc) +
   geom_bar(mapping = aes(x = age, fill = genhlth)) +
   facet_wrap(~ smoke100)+
   labs(title = "Health Quality by Age for Smokers vs. Non-smokers")
 ```
+
 ####Conclusion
 We concluded that general health tends to worsen with age with age with much lower portions of people registering 'excellent' health quality at higher ages.  Also, it is evident that overall health quality is lower for those who smoke cigarettes with higher portions of the populations registering with lower health quality compared to those who don't smoke.
 
@@ -52,12 +54,12 @@ I, Adam Hayes, overall found, the population of people that smoke have a much lo
 ggplot(data=cdc) + ggtitle("How Age Impacts General Health") + geom_bar(mapping = aes(x = age, fill = genhlth),position = "jitter", width = 0.25) + coord_flip() 
 ```
 
-###Findings
+####Findings
 I, Erin Omyer, created a plot showing the comparison between the general health of person based on their age. For our overall study, we want to study the relationship among smokers between their age and general health. The data showed that an adolescent is likely to have "very good" health, but the as you reach the age of 50, then the general health is more on the bridge of "fair" health. I used the geom_bar function to create a bar chart. I flipped the coordinated axises to make it easier to observe the patterns of general health as the age increases. In addition, I used a width of 0.5 to visualize the division of colors for the general health easier. Overall, the older the age, the lower the level of their general health. 
 
 ```{r}
-ggplot(data = cdc, mapping = aes(x= weight, y = height), position = "dodge") +
-geom_point(mapping = aes(color = genhlth, shape = genhlth), position = "dodge") +
+ggplot(data = cdc, mapping = aes(x= weight, y = height)) +
+geom_point(mapping = aes(color = genhlth, shape = genhlth)) +
   geom_smooth(mapping = aes(color = genhlth), se = FALSE) +
    theme_bw() +
   facet_wrap(~ gender) +
