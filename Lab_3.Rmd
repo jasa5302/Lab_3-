@@ -5,19 +5,82 @@ date: "January 30, 2019"
 output: html_document
 ---
 
-```{r}
+```{r, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+
 library(tidyverse)
-install.packages("tidyverse")
-library(tidyverse)
+source("http://www.openintro.org/stat/data/cdc.R")
+cdc <- as_tibble(cdc)
+cdc
 ```
 
+##Question
+How is people health affected by age and whether or not they smoke?
+
+####Importance
+This question is intriguing because people are constantly worried about their health, and what causes it to decrease and/or increase. People generally think that their health decrease with age, and that smoking will also decrease overall health quality. We wanted to investigate the validity of these general assumptions.
+
 ```{r}
-source("http://www.openintro.org/stat/data/cdc.R") 
 ggplot(data = cdc) +
   geom_bar(mapping = aes(x = age, fill = genhlth)) +
-  facet_wrap(~ smoke100)
+  facet_wrap(~ smoke100)+
+  labs(title = "Health Quality by Age for Smokers vs. Non-smokers")
 ```
+
+####Conclusion
+We concluded that general health tends to worsen with age with age with much lower portions of people registering 'excellent' health quality at higher ages.  Also, it is evident that overall health quality is lower for those who smoke cigarettes with higher portions of the populations registering with lower health quality compared to those who don't smoke.
+
+####Recommendation
+We would recommend that people try to avoid smoking cigarettes as much as possible, especially as they get older if they want to have better overall health quality. We would also recommend that people try to excercise more often because excercise is known to improve health quality.
 ```{r}
-ggplot(data = cdc) + 
-  geom_smooth(mapping = aes(x = weight, y = age, color = genhlth, linetype = genhlth)) 
+ggplot(data = cdc)+
+  geom_bar(mapping = aes(x = genhlth, fill = genhlth), width = 1)+
+  facet_wrap(~smoke100)+
+  coord_polar()+
+  labs(x = NULL, y = NULL, title = "Health Quality for Smokers vs. Non-smokers")
+
+ggplot(data = cdc)+
+  geom_bar(mapping = aes(x = genhlth, y = ..prop.., group = 1), width = 1)+
+  facet_wrap(~exerany)+
+  coord_polar()+
+  labs(x = NULL, y = NULL, title = "Health Quality for People Who Don't Excercise vs People That Do ")
+
 ```
+
+####Findings
+I, Adam Hayes, overall found, the population of people that smoke have a much lower portion of people with 'excellent' health quality compared to non-smokers.  They also have a lower portion of people with 'very good' health quality, and higher portions of 'fair' and 'poor' health quality people. It also shows that of the people that excercise, the population has a much greater proportion of people with 'excellent' and 'ver good' health quality compared to those who don't excercise.
+
+```{r}
+ggplot(data=cdc) + ggtitle("How Age Impacts General Health") + geom_bar(mapping = aes(x = age, fill = genhlth),position = "jitter", width = 0.25) + coord_flip() 
+```
+
+####Findings
+I, Erin Omyer, created a plot showing the comparison between the general health of person based on their age. For our overall study, we want to study the relationship among smokers between their age and general health. The data showed that an adolescent is likely to have "very good" health, but the as you reach the age of 50, then the general health is more on the bridge of "fair" health. I used the geom_bar function to create a bar chart. I flipped the coordinated axises to make it easier to observe the patterns of general health as the age increases. In addition, I used a width of 0.5 to visualize the division of colors for the general health easier. Overall, the older the age, the lower the level of their general health. 
+
+```{r}
+ggplot(data = cdc, mapping = aes(x= weight, y = height)) +
+geom_point(mapping = aes(color = genhlth, shape = genhlth)) +
+  geom_smooth(mapping = aes(color = genhlth), se = FALSE) +
+   theme_bw() +
+  facet_wrap(~ gender) +
+  labs(y = "Survey Participants",
+      title = "General Health by Weight and Gender")
+```
+
+#### Findings 
+I (Richard Park) found that general health varied between weight and gender. The red linear trend line (which indicates a general health of excellent) for both female and male were extremely different from each other. Oddly enough, the males peaked in excellent general health at the weight of about 250 pounds whereas, females peaked in excellent health after a weight of about 350 pounds. Another finding that I found interesting was that males tend to have more participants with fair or poor general health compared to females. The general trend lines indicate a lot of interesting trends.
+
+```{r}
+library(tidyverse)
+
+install.packages("tidyverse")
+
+library(tidyverse)
+
+ggplot(data = cdc) + 
+
+  geom_smooth(mapping = aes(x = weight, y = age, color = genhlth, linetype = genhlth))
+```
+
+####Findings
+I Jasmine Sanchez looked more closesly at the distribution of status of health between individuals depending on their age and weight. I noticed a pattern in maintaing weight as you increase in age. It is more important becuase it has a larger affect on your health, being over and under weight as you get older. Another general trend that occured was that the younger the individual, the healthier they were overall. 
