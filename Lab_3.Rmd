@@ -12,7 +12,12 @@ library(tidyverse)
 ```
 
 ```{r}
+source("http://www.openintro.org/stat/data/cdc.R") 
 ggplot(data = cdc) +
   geom_bar(mapping = aes(x = age, fill = genhlth)) +
   facet_wrap(~ smoke100)
+```
+```{r}
+ggplot(data = cdc) + 
+  geom_smooth(mapping = aes(x = weight, y = age, color = genhlth, linetype = genhlth)) 
 ```
