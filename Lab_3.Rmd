@@ -77,10 +77,14 @@ install.packages("tidyverse")
 
 library(tidyverse)
 
-ggplot(data = cdc) + 
+ggplot(data = cdc) + ggtitle("Health Trends in people's Age vs. Weight") +
 
   geom_smooth(mapping = aes(x = weight, y = age, color = genhlth, linetype = genhlth))
+
 ```
 
 ####Findings
-I Jasmine Sanchez looked more closesly at the distribution of status of health between individuals depending on their age and weight. I noticed a pattern in maintaing weight as you increase in age. It is more important becuase it has a larger affect on your health, being over and under weight as you get older. Another general trend that occured was that the younger the individual, the healthier they were overall. 
+I Jasmine Sanchez looked more closesly at the distribution of status of health between individuals depending on their age and weight. I noticed a pattern in maintaing weight as you increase in age. It is more important becuase it has a larger affect on your health, being over and under weight as you get older. Another general trend that occured was that the younger the individual, the healthier they were overall. As individual's get older it is easier for them to become overweight and feed into the poor health category.  
+
+##Summary
+Throughout the Lab_3. Jasmine looked at how the age and weight of indivudals have an affect on their general health. She took note of the trends that suggested weight management is harder to maintain as individuals increase in age. Adam found the population of smokers have a lower portion of people with 'excellent' health quality compared to non-smokers. He concluded that of the people that excercise, the population has a much greater proportion of people with 'excellent' and 'ver good' health quality compared to those who don't excercise. Erin created a plot showing comparisons between the general health of person based on their age. With respect to the overall study, she looked at the relationship among smokers between their age and general health. The data showed that an adolescent is likely to have "very good" health, but the as you reach the age of 50, then the general health is more on the bridge of "fair" health. She used the geom_bar function and flipped the coordinated axises to make it easier to observe the patterns of general health as the age increases. Overall, she concluded that the older the age, the lower the level of their general health. Richard found that general health varied between weight and gender. He found a trend line that indicated an excellent health status for both female and male were extremely different from each other. He noticed that males peaked in excellent general health at 250 pounds whereas, females peaked in excellent health after 350 pounds. Another trend he pointed out was that males tend to have more participants with fair or poor general health compared to females.
